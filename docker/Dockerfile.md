@@ -23,3 +23,25 @@ COPY . .
 ```bash
 CMD ["php", "-S", "0.0.0.0:8000"]
 ```
+
+### 🧩 Step 4: RUN others commands
+```bash
+RUN apk add --no-cache git unzip zip
+
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+COPY composer.json composer.lock ./
+
+RUN composer install --no-dev --optimize-autoloader
+
+RUN composer install --no-dev \
+ && php artisan key:generate \
+ && php artisan config:cache
+
+composer install \
+  --no-dev \
+  --prefer-dist \
+  --optimize-autoloader \
+  --no-interaction
+
+```
