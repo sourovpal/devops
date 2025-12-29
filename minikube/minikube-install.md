@@ -1,4 +1,4 @@
-# Minikube & Kubectl install and setup
+# Minikube & KubeCTL install and setup
 
 
 ### 🧩 Step 1: kubectl Install
