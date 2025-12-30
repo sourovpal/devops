@@ -37,4 +37,12 @@ spec:
 ```
 📌 Always - Pod start হলেই Docker Hub / Registry থেকে image pull করবে\
 📌 IfNotPresent - আগে local image আছে কিনা চেক করবে | থাকলে 👉 local ব্যবহার করবে | না থাকলে 👉 registry থেকে pull করবে\
-📌 Never - শুধু local Docker image ব্যবহার করবে\
+📌 Never - শুধু local Docker image ব্যবহার করবে
+
+### 🧩 Step 0: Others Commands
+
+```bash
+  👉 kubectl get pods                                                    # Show all Pods
+  👉 kubectl rollout restart deployment/html-website-deployment          # Restart existing pods  
+```
+
