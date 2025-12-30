@@ -28,3 +28,4 @@
   docker restart jenkins
 ```
 
+### 🧩 Github Webhook trigger
