@@ -39,7 +39,14 @@ spec:
 📌 IfNotPresent - আগে local image আছে কিনা চেক করবে | থাকলে 👉 local ব্যবহার করবে | না থাকলে 👉 registry থেকে pull করবে\
 📌 Never - শুধু local Docker image ব্যবহার করবে
 
-### 🧩 Step 0: Others Commands
+### 🧩 Delete Deployment or Pod
+
+```bash
+  👉 kubectl delete deployment/html-website-deployment                   # Delete deployment
+  👉 kubectl delete pod/html-website-deployment-xxxxxxxxx                # Delete Pod
+```
+
+### 🧩 Others Commands
 
 ```bash
   👉 kubectl get pods                                                    # Show all Pods
