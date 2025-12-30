@@ -43,6 +43,8 @@ spec:
 
 ```bash
   👉 kubectl get pods                                                    # Show all Pods
+  👉 kubectl describe deployment/html-website-deployment                 # Show existing deployment configration details
+  👉 kubectl describe pod/html-website-deployment-xxxxxxxxx              # Show existing pod configration details
   👉 kubectl rollout restart deployment/html-website-deployment          # Restart existing pods  
 ```
 
