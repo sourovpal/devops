@@ -52,12 +52,12 @@ docker exec -it jenkins bash             # bash or sh
   USER jenkins
 ```
 
-### 🧩 Step 1: Rebuild Jenkins Image
+### 🧩 Step 2: Rebuild Jenkins Image
 ```bash
   docker build -t jenkins-with-docker .
 ```
 
-### 🧩 Step 1: Run Image in Container
+### 🧩 Step 3: Run Image in Container
 ```bash
   docker run -d \
   --name jenkins \
