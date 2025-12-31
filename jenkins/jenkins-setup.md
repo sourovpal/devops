@@ -33,4 +33,38 @@
 docker exec -it jenkins bash             # bash or sh
 ```
 
-### 🧩 Github Webhook trigger
+# Jenkins Install With Connect Host Machine Docker
+
+### 🧩 Step 1: Rewrite Dockerfile for Jenkins
+```bash 
+  FROM jenkins/jenkins:lts
+  
+  USER root
+  
+  # Install Docker CLI only (no daemon)
+  RUN apt-get update && \
+      apt-get install -y docker.io && \
+      rm -rf /var/lib/apt/lists/*
+  
+  # Add jenkins user to docker group
+  RUN usermod -aG docker jenkins
+  
+  USER jenkins
+```
+
+### 🧩 Step 1: Rebuild Jenkins Image
+```bash
+  docker build -t jenkins-with-docker .
+```
+
+### 🧩 Step 1: Run Image in Container
+```bash
+  docker run -d \
+  --name jenkins \
+  -p 8080:8080 \
+  -p 50000:50000 \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v jenkins_home:/var/jenkins_home \
+  jenkins-with-docker
+```
+
