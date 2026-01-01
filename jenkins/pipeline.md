@@ -1,6 +1,6 @@
 # Jenkins Pipeline
 
-### 🧩 Simple Pipeline with ssh login build docker image and restart k8s
+### 🧩 Simple Pipeline with ssh login, build docker image and restart pods
 
 
 ```bash
@@ -47,3 +47,4 @@ pipeline {
     }
 }
 ```
+
