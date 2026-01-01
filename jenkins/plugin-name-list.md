@@ -1,1 +1,93 @@
+# Jenkins Plugins List with Descriptions
 
+- **commons-lang3 v3.x** – Provides additional utility functions for Java development.  
+- **Ionicons** – Adds Ionicons icon support for Jenkins UI.  
+- **Folders** – Allows organizing Jenkins jobs into hierarchical folders.  
+- **OWASP Markup Formatter** – Safely formats user-generated HTML content.  
+- **ASM** – A Java bytecode manipulation library used by Jenkins plugins.  
+- **JSON Path** – Enables querying JSON objects in pipelines.  
+- **Structs** – Provides a structured data type for pipeline steps.  
+- **Pipeline: Step** – Core library for defining pipeline steps.  
+- **commons-text** – Adds extra string manipulation utilities.  
+- **Token Macro** – Allows dynamic token expansion in jobs and plugins.  
+- **Build Timeout** – Automatically aborts builds after a specified timeout.  
+- **bouncycastle** – Provides cryptography APIs for secure operations.  
+- **Credentials** – Manages credentials for Jenkins jobs.  
+- **Plain Credentials** – Supports plain text credentials storage.  
+- **Variant** – Supports variant configurations in jobs.  
+- **SSH Credentials** – Stores SSH credentials for remote access.  
+- **Credentials Binding** – Binds credentials to environment variables during builds.  
+- **SCM** – Abstracts Source Code Management system support.  
+- **Pipeline: API** – Provides core pipeline API for plugins and scripts.  
+- **Timestamper** – Adds timestamps to console logs.  
+- **Caffeine** – Provides caching for Jenkins plugins.  
+- **Script Security** – Secures Groovy scripts in pipelines.  
+- **JavaBeans Activation Framework (JAF)** – Supports handling data types in Java.  
+- **JAXB** – Enables XML binding in Java.  
+- **SnakeYAML** – Adds YAML parsing support.  
+- **Jakarta Activation** – Supports data handling in Jakarta APIs.  
+- **Jakarta XML Binding** – Provides XML binding for Jakarta-based projects.  
+- **JSON** – Provides JSON processing APIs.  
+- **Jackson 2** – Library for JSON serialization and deserialization.  
+- **Pipeline: Supporting APIs** – Provides supporting APIs for pipeline plugins.  
+- **Plugin Utilities** – Utility functions for plugin development.  
+- **Font Awesome** – Adds Font Awesome icons support in Jenkins UI.  
+- **Bootstrap 5** – Adds Bootstrap 5 support for Jenkins UI styling.  
+- **JQuery3** – Adds jQuery 3 support for UI scripting.  
+- **ECharts** – Provides charting support for dashboards.  
+- **Prism** – Syntax highlighting for code display in Jenkins.  
+- **Display URL** – Enhances UI with URLs for builds and jobs.  
+- **Checks** – Provides checks API for pull requests and builds.  
+- **JUnit** – Parses JUnit test results for reports.  
+- **Matrix Project** – Supports multi-configuration jobs.  
+- **Resource Disposer** – Cleans up resources after job execution.  
+- **Workspace Cleanup** – Cleans up workspaces before or after builds.  
+- **Ant** – Adds Apache Ant build support.  
+- **OkHttp** – HTTP client library for plugins.  
+- **Apache HttpComponents Client 4.x** – HTTP client for Jenkins operations.  
+- **Pipeline: Job** – Supports pipeline job types.  
+- **Gradle** – Adds Gradle build support.  
+- **Pipeline: Milestone Step** – Allows pipeline milestone management.  
+- **Durable Task** – Manages long-running tasks in pipelines.  
+- **Pipeline: Nodes and Processes** – Provides pipeline node and process management.  
+- **Pipeline: Build Step** – Supports build steps in pipelines.  
+- **Pipeline: SCM Step** – Supports SCM steps in pipelines.  
+- **Pipeline: Groovy** – Enables Groovy scripting in pipelines.  
+- **Pipeline: Groovy Libraries** – Adds reusable Groovy library support.  
+- **Joda Time** – Provides date and time handling utilities.  
+- **Pipeline: Model API** – Supports declarative pipeline model.  
+- **Pipeline: Stage Step** – Adds stage support in pipelines.  
+- **Pipeline: Declarative Extension Points API** – Extends declarative pipeline functionality.  
+- **Jakarta Mail** – Adds email sending support via Jakarta Mail.  
+- **Instance Identity** – Provides identity for Jenkins master instance.  
+- **Mailer** – Sends email notifications.  
+- **Branch API** – Supports multi-branch pipelines.  
+- **Pipeline: Multibranch** – Enables multi-branch pipeline jobs.  
+- **Pipeline: Stage Tags Metadata** – Adds metadata to stages.  
+- **Pipeline: Input Step** – Allows user input during pipeline execution.  
+- **Pipeline: Basic Steps** – Provides basic pipeline steps.  
+- **Pipeline: Declarative** – Supports declarative pipelines.  
+- **Pipeline** – Core pipeline functionality.  
+- **Java JSON Web Token (JJWT)** – Supports JWT authentication.  
+- **GitHub API** – Integrates with GitHub API.  
+- **Mina SSHD API :: Common** – SSH support library.  
+- **Mina SSHD API :: Core** – Core SSH support.  
+- **Gson** – Provides JSON serialization/deserialization.  
+- **Git client** – Supports Git operations in Jenkins.  
+- **Git** – Integrates Git version control.  
+- **GitHub** – Integrates GitHub for SCM and webhooks.  
+- **GitHub Branch Source** – Supports multi-branch GitHub pipelines.  
+- **Pipeline: GitHub Groovy Libraries** – Adds Groovy libraries for GitHub pipelines.  
+- **Metrics** – Provides metrics collection for Jenkins.  
+- **Pipeline Graph View** – Visualizes pipeline graph.  
+- **EDDSA API** – Provides EDDSA cryptography support.  
+- **Trilead API** – SSH client support.  
+- **SSH Build Agents** – Enables SSH-based build agents.  
+- **Matrix Authorization Strategy** – Fine-grained access control for Jenkins.  
+- **LDAP** – Integrates LDAP authentication.  
+- **jsoup** – HTML parser for scraping or processing.  
+- **Email Extension** – Advanced email notifications.  
+- **Theme Manager** – Enables custom Jenkins themes.  
+- **Dark Theme** – Provides dark mode UI.  
+- **Generic Webhook Trigger** – Triggers jobs via webhooks.  
+- **SSH Agent** – Provides SSH agent support for pipelines.  
