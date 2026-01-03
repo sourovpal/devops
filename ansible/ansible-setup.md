@@ -9,7 +9,8 @@
   ansible --version
 ```
 
-### 🧩 Step 2: inventory.ini
+### 🧩 Step 2: Inventory file configer
+inventory.ini
 
 ```bash
   [web]
