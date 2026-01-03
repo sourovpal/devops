@@ -215,6 +215,71 @@ pipeline {
     }
 ```
 
+### 🧩 Variable pass to Shell Script
+
+```bash
+    pipeline {
+        agent any
+    
+        environment {
+            SERVER = "172.17.186.110"
+        }
+    
+        stages {
+            stage('SSH Example') {
+                steps {
+                    sh """
+                        echo Connecting to $SERVER
+                        ssh user@$SERVER "hostname"
+                    """
+                }
+            }
+        }
+    }
+```
+### 🧩 Variable from Command Output
+
+```bash
+    pipeline {
+        agent any
+    
+        stages {
+            stage('Command Output') {
+                steps {
+                    script {
+                        def commit = sh(
+                            script: "git rev-parse --short HEAD",
+                            returnStdout: true
+                        ).trim()
+    
+                        echo "Commit: ${commit}"
+                    }
+                }
+            }
+        }
+    }
+```
+
+### 🧩 Credentials as Variable
+
+```bash
+    pipeline {
+        agent any
+    
+        environment {
+            DB_PASS = credentials('db-password-id')
+        }
+    
+        stages {
+            stage('Secure Use') {
+                steps {
+                    sh 'echo "DB Pass is hidden"'
+                }
+            }
+        }
+    }
+```
+
 ### 🧩 Use SSH Agent Plugin for SSH Access
 
 ```bash
@@ -229,6 +294,7 @@ stage('Test SSH') {
     }
 }
 ```
+
 
 
 
