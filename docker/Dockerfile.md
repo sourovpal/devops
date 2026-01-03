@@ -61,14 +61,15 @@ composer install \
 
 ### 🧩 Step 5: All Commands
 ```bash
-👉 docker images                           # all image list
-👉 docker image list                       # all image list
-👉 docker ps                               # all runing container list
-👉 docker ps -a                            # all runing and stoped container list
-👉 docker start <container-name or id>     # start container
-👉 docker stop <container-name or id>      # stop container
-👉 docker rm <container-name or id>        # delete container
-👉 docker rmi <image-name or id>           # delete image 
+👉 docker images                                    # all image list
+👉 docker image list                                # all image list
+👉 docker ps                                        # all runing container list
+👉 docker ps -a                                     # all runing and stoped container list
+👉 docker start <container-name or id>              # start container
+👉 docker stop <container-name or id>               # stop container
+👉 docker rm <container-name or id>                 # delete container
+👉 docker rmi <image-name or id>                    # delete image
+👉 docker exec -it <container-name> bash/sh         # delete image
 ```
 
 
