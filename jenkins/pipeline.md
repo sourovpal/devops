@@ -152,6 +152,69 @@ pipeline {
 
 ```
 
+### 🧩 Use Built-in Jenkins Variables
+
+```bash
+    pipeline {
+        agent any
+        stages {
+            stage('Show Built-in Vars') {
+                steps {
+                    echo "Job Name: ${env.JOB_NAME}"
+                    echo "Build Number: ${env.BUILD_NUMBER}"
+                    echo "Workspace: ${env.WORKSPACE}"
+                    echo "Git Branch: ${env.GIT_BRANCH}"
+                }
+            }
+        }
+    }
+```
+
+### 🧩 Use Environment Variable
+
+```bash
+    pipeline {
+        agent any
+    
+        environment {
+            APP_NAME = "task-management"
+            ENV = "production"
+            DOCKER_IMAGE = "task-app:v1"
+        }
+    
+        stages {
+            stage('Use Env Var') {
+                steps {
+                    sh '''
+                        echo App: $APP_NAME
+                        echo Env: $ENV
+                        echo Image: $DOCKER_IMAGE
+                    '''
+                }
+            }
+        }
+    }
+```
+
+### 🧩 Use Custom Variable inside stage
+
+```bash
+    pipeline {
+        agent any
+    
+        stages {
+            stage('Custom Var') {
+                steps {
+                    script {
+                        def version = "1.0.${env.BUILD_NUMBER}"
+                        echo "Version: ${version}"
+                    }
+                }
+            }
+        }
+    }
+```
+
 ### 🧩 Use SSH Agent Plugin for SSH Access
 
 ```bash
@@ -166,6 +229,7 @@ stage('Test SSH') {
     }
 }
 ```
+
 
 
 
