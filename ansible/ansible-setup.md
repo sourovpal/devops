@@ -58,6 +58,71 @@ nginx.yml
 
 ```
 
+### 🧩 Copy file to servers
+
+```bash
+  - name: Copy index.html
+    hosts: web
+    become: yes
+  
+    tasks:
+      - name: Copy file
+        copy:
+          src: index.html
+          dest: /var/www/html/index.html
+
+```
+
+### 🧩 Run Linux command
+
+```bash
+  - name: Run shell command
+  hosts: all
+
+  tasks:
+    - name: Check disk space
+      command: df -h
+      register: disk
+
+    - debug:
+        var: disk.stdout
+
+```
+
+### 🧩 Conditional (if else)
+
+```bash 
+  - name: Install based on OS
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Install nginx on Ubuntu
+      apt:
+        name: nginx
+        state: present
+      when: ansible_os_family == "Debian"
+
+```
+
+### 🧩 Loop
+
+```bash 
+  - name: Install common packages
+    hosts: all
+    become: yes
+  
+    tasks:
+      - name: Install packages
+        apt:
+          name: "{{ item }}"
+          state: present
+        loop:
+          - git
+          - curl
+          - unzip
+
+```
 
 
 
