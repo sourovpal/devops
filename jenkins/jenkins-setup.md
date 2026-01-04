@@ -99,7 +99,7 @@ RUN chmod 600 /var/jenkins_home/.ssh/id_rsa && \
 USER jenkins
 
 ```
-### 🧩 Step 1: Build & Run Custom Jenkins Image
+### 🧩 Step 2: Build & Run Custom Jenkins Image
 
 ```bash
 docker build -t jenkins-ssh .
