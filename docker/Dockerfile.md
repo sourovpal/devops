@@ -95,6 +95,14 @@ composer install \
 👉 docker network inspect app-net
 👉 docker network rm app-net
 
+# Cleanup Commands (Very Important)
+
+👉 docker system df              # disk usage
+👉 docker system prune           # remove unused
+👉 docker container prune        # stopped containers
+👉 docker image prune            # unused images
+👉 docker volume prune           # unused volumes
+
 ```
 
 
