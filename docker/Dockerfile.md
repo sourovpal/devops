@@ -81,6 +81,13 @@ composer install \
 
 👉 docker pull nginx                                # image download
 
+# Docker Compose
+
+👉 docker-compose up -d
+👉 docker-compose down
+👉 docker-compose ps
+👉 docker-compose logs
+
 # Volume Commands
 
 👉 docker volume ls
