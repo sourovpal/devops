@@ -75,6 +75,9 @@ composer install \
 
 ### 🧩 Step 5: All Commands
 ```bash
+👉 docker --version
+👉 docker info
+👉 docker help
 👉 docker images                                    # all image list
 👉 docker image list                                # all image list
 👉 docker ps                                        # all runing container list
