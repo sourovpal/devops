@@ -112,6 +112,11 @@ composer install \
 👉 docker image prune            # unused images
 👉 docker volume prune           # unused volumes
 
+# Debugging Commands
+
+👉 docker stats                  # live CPU/RAM usage
+👉 docker top web                # running process
+
 ```
 
 
