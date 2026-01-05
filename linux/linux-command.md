@@ -130,7 +130,7 @@
     👉 chgrp -R staff /project
 
 ```
-#### 🧩 Symbol & Meaning
+#### 📌 Symbol & Meaning
 
 | Symbol | Meaning                   | Description                                    |
 |--------|---------------------------|------------------------------------------------|
