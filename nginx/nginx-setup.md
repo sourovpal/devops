@@ -202,8 +202,8 @@
 ```bash
 # Static files cache
 location ~* \.(jpg|jpeg|png|gif|ico|css|js|svg|woff|woff2)$ {
-    expires 30d;          // Client browser এ 30 দিন cache
-    add_header Cache-Control "public";     // Browser, CDN দুইয়ে cache করা যায়
+    expires 30d;          # Client browser এ 30 দিন cache
+    add_header Cache-Control "public";     # Browser, CDN দুইয়ে cache করা যায়
 }
 ```
 
