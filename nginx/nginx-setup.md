@@ -84,6 +84,22 @@
   👉 sudo certbot --nginx -d mywebsite.local
 ```
 
+### 🧩 Node.js Multiple Instances Setup
+```node
+  // index.js
+  const express = require("express");
+  const app = express();
+  const port = process.env.PORT || 3000;
+  
+  app.get("/", (req, res) => {
+    res.send(`Hello from Node.js on port ${port}`);
+  });
+  
+  app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+  });
+```
+
 ### 🧩 Nginx Load Balancer Configuration
 ```bash
   upstream node_app {
