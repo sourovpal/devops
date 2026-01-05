@@ -15,8 +15,9 @@
             # ./index.html লোকাল মেশিনে যে index.html ফাইল আছে তা নির্দেশ করছে।
             # /usr/share/nginx/html/index.html এটি হলো Nginx সার্ভারের ডিফল্ট লোকেশন যেখানে HTML ফাইল রাখা হয়।
             # :ro মানে read-only। কন্টেইনার ফাইলটি পরিবর্তন করতে পারবে না।
-        networks:
-      - webnet
+      networks:
+        - webnet
+      command: ["nginx", "-g", "daemon off;"]
 
 networks:
   webnet:
