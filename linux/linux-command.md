@@ -2,9 +2,30 @@
 
 ### 🧩 Install Package
 ```bash
-    sudo apt update                    # repository থেকে লেটেস্ট প্যাকেজ list download করে
-    sudo apt upgrade -y
+    👉 sudo apt update                    # repository থেকে লেটেস্ট প্যাকেজ list download করে
+    👉 sudo apt upgrade -y                # সব install হওয়া package লেটেস্ট version এ update করে
+    # -y flag: auto yes করে prompt skip করে।
+
+    👉 sudo apt install <package-name> -y        # Package Install command
+    👉 sudo apt install git curl wget -y         # Example Install Package
+    👉 sudo apt --fix-broken install             # Fix broken dependencies
+
+    👉 sudo apt remove <package-name> -y         # Remove Package
+    👉 sudo apt purge <package-name> -y          # Package + configuration সম্পূর্ণ remove করে
+    👉 apt search <package-name>                 # Package Search
+    👉 apt show <package-name>                   # Show package info
+
+    # Clean / Autoremove
+
+    👉 sudo apt autoremove -y
+    👉 sudo apt clean
+    👉 sudo apt autoclean
+
+    # autoremove: unused dependencies remove করে।
+    # clean: downloaded package archive remove করে।
+    # autoclean: পুরনো/archive packages remove করে।
 ```
+apt, dpkg, rpm, dnf, yum, pacman
 
 ### 🧩 File & Folder Command
 
