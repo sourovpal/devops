@@ -143,6 +143,8 @@
 ### 🧩 Network
 
 ```bash
+👉 hostname                             # Hostname দেখায়
+👉 hostname -I                          # Hostname IP দেখা যায়
 👉 ifconfig                             # ইন্টারফেসের IP, MAC, RX/TX stats দেখায়
 👉 ip addr show / ip a                  # IP এবং state দেখা যায়
 👉 ip link show / ip l                  # status দেখা যায় (UP/DOWN, MAC)
