@@ -40,6 +40,15 @@
         # এটি বলে: "এই সার্ভিস শুরু করার আগে অন্য সার্ভিসটি শুরু হয়ে যাক"।
         # web সার্ভিসের container চালু হওয়ার আগে db সার্ভিসের container start হবে।
 
+      deploy:
+        resources:
+          limits:
+            cpus: '0.5'       # container max 50% CPU use করতে পারবে
+            memory: 512M      # max 512 MB RAM
+          reservations:
+            cpus: '0.25'      # container minimum 25% CPU reserved
+            memory: 256M      # minimum 256 MB RAM
+
 networks:
   webnet:
     driver: bridge
