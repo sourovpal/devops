@@ -274,8 +274,6 @@ apt, dpkg, rpm, dnf, yum, pacman
 ```
 #### 📌 Download Command Options
 
-# Download Command Options with Examples
-
 | Option          | Description                       | Example |
 |-----------------|-----------------------------------|---------|
 | `-O`            | Save as custom filename           | `wget -O myfile.html https://example.com` |
