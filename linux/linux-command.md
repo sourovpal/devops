@@ -165,6 +165,19 @@ apt, dpkg, rpm, dnf, yum, pacman
 | o      | others                   | Everyone else                                 |
 | a      | all                      | All of the above (user, group, others)        |
 
+#### 📌 Permission with numeric value
+
+| Permission | Numeric Value |
+|-----------------|---------------|
+| ---             | 0             |
+| --x             | 1             |
+| -w-             | 2             |
+| -wx             | 3             |
+| r--             | 4             |
+| r-x             | 5             |
+| rw-             | 6             |
+| rwx             | 7             |
+
 ### 🧩 Network
 
 ```bash
