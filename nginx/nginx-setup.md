@@ -14,6 +14,7 @@
 | Site config (Ubuntu)   | /etc/nginx/sites-available/   |
 | Enabled sites          | /etc/nginx/sites-enabled/     |
 | Logs                   | /var/log/nginx/               |
+| Default web root       | /usr/share/nginx/html or /var/www/html |
 
 
 ### 🧩 Nginx Start & Enable
