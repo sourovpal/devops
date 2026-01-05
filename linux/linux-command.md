@@ -102,7 +102,7 @@
     👉 man <command>                   # কমান্ডের ম্যানুয়াল দেখায় <man ls>
 ```
 
-### 🧩 Group
+### 🧩 Group Manage
 
 ```bash
     👉 sudo groupadd developers            # নতুন group তৈরি
@@ -125,6 +125,9 @@
 ### 🧩 User Manage
 
 ```bash
+    👉 su - / sudo -i                # root user এ switch করে
+    👉 exit / logout                 # current user logout করে
+
     👉 sudo useradd soruov                     # Normal user create
     👉 sudo useradd -m soruov                  # User create with home directory
     👉 sudo useradd -m -s /bin/bash -g developers soruov   # home directory + shell + group নির্দিষ্ট করে
