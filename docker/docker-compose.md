@@ -5,19 +5,40 @@
   version: '3.9'           # বর্তমানে সর্বশেষ স্টেবল ভার্সনের সঙ্গে সামঞ্জস্যপূর্ণ, এবং এটি নতুন ফিচারগুলো ব্যবহার করতে
   
   services:                # Docker Compose-এর মূল অংশ। এখানে আমরা কোন কোন কন্টেইনার তৈরি হবে এবং তাদের কনফিগারেশন কী হবে তা লিখি।
+    
     web:                   # web হলো সার্ভিসের নাম।
-      image: nginx:latest  # nginx:latest মানে Docker Hub থেকে Nginx-এর সর্বশেষ সংস্করণ ব্যবহার করা।
-      container_name: simple-html  # কন্টেইনারের নাম
+      image: nginx:latest
+            # nginx:latest মানে Docker Hub থেকে Nginx-এর সর্বশেষ সংস্করণ ব্যবহার করা।
+
+      build: .
+        # এখানে build: Docker Compose-কে বলে যে এই সার্ভিসের জন্য Docker image locally তৈরি করতে হবে।
+        # . (dot) মানে বর্তমান ডিরেক্টরি, যেখানে docker-compose.yml ফাইল আছে।
+
+      container_name: simple-html
+          # কন্টেইনারের নাম
+
       ports:
-        - "8080:80"    # 8080 → আপনার লোকাল কম্পিউটার পোর্ট | 80 → কন্টেইনারের Nginx পোর্ট
+        - "8080:80"
+          # 8080 → আপনার লোকাল কম্পিউটার পোর্ট | 80 → কন্টেইনারের Nginx পোর্ট
+
       volumes:        
         - ./index.html:/usr/share/nginx/html/index.html:ro
+
             # ./index.html লোকাল মেশিনে যে index.html ফাইল আছে তা নির্দেশ করছে।
             # /usr/share/nginx/html/index.html এটি হলো Nginx সার্ভারের ডিফল্ট লোকেশন যেখানে HTML ফাইল রাখা হয়।
             # :ro মানে read-only। কন্টেইনার ফাইলটি পরিবর্তন করতে পারবে না।
+
       networks:
         - webnet
+
+
       command: ["nginx", "-g", "daemon off;"]
+
+      depends_on:
+        - db
+        # depends_on হলো Docker Compose-এর একটি service dependency declaration।
+        # এটি বলে: "এই সার্ভিস শুরু করার আগে অন্য সার্ভিসটি শুরু হয়ে যাক"।
+        # web সার্ভিসের container চালু হওয়ার আগে db সার্ভিসের container start হবে।
 
 networks:
   webnet:
@@ -25,4 +46,56 @@ networks:
 # networks: সার্ভিস কোথায় থাকবে তা নির্ধারণ করে।
 # webnet: একটি কাস্টম ব্রিজ নেটওয়ার্ক তৈরি।
 # driver: bridge → এটি Docker-এর default network driver।
+
+
+
+  db:
+    image: mysql:8
+    container_name: laravel-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: secret
+    ports:
+      - "3306:3306"
+    networks:
+      - webnet
+
+# App Args
+
+`
+  services:
+    app:
+      build:
+        context: .
+        args:
+          APP_ENV: development
+      ports:
+        - "9000:9000"
+`
+
+`
+  FROM php:8.2-fpm
+  ARG APP_ENV
+  ENV APP_ENV=${APP_ENV}
+  
+  WORKDIR /var/www/html
+  COPY . .
+  
+  RUN if [ "$APP_ENV" = "production" ]; then \
+        composer install --no-dev --optimize-autoloader; \
+      else \
+        composer install; \
+      fi
+  
+  CMD ["php-fpm"]
+`
+
+
+
+
+
+
+
 ```
