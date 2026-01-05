@@ -25,7 +25,36 @@
     # clean: downloaded package archive remove করে।
     # autoclean: পুরনো/archive packages remove করে।
 ```
-apt, dpkg, rpm, dnf, yum, pacman
+
+### 🧩 Linux Folder Structure Explanation
+
+| Directory | Description |
+|----------|-------------|
+| `/`      | Root directory. The top-level directory of the entire filesystem |
+| `/bin`  | Essential user command binaries (e.g., `ls`, `cp`, `mv`) |
+| `/boot` | Bootloader files, Linux kernel, initramfs |
+| `/dev`  | Device files (hard disks, USB, terminals, etc.) |
+| `/etc`  | System-wide configuration files |
+| `/home` | Home directories for regular users |
+| `/lib`  | Essential shared libraries for `/bin` and `/sbin` |
+| `/lib64`| 64-bit shared libraries |
+| `/media`| Mount point for removable media (USB, CD-ROM) |
+| `/mnt`  | Temporary mount point for filesystems |
+| `/opt`  | Optional or third-party software packages |
+| `/proc` | Virtual filesystem with system & process info |
+| `/root` | Home directory for the root user |
+| `/run`  | Runtime data (PID files, sockets) |
+| `/sbin` | System binaries for administration |
+| `/srv`  | Data for services (web, FTP, etc.) |
+| `/sys`  | Kernel and hardware information |
+| `/tmp`  | Temporary files (cleared on reboot) |
+| `/usr`  | User applications and utilities |
+| `/usr/bin` | User command binaries |
+| `/usr/sbin` | System admin binaries |
+| `/usr/lib` | Libraries for `/usr/bin` and `/usr/sbin` |
+| `/var`  | Variable data (logs, cache, mail, spool) |
+| `/var/log` | System and application log files |
+| `/var/tmp` | Temporary files kept between reboots |
 
 ### 🧩 File & Folder Command
 
