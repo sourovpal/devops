@@ -1,5 +1,11 @@
 # Linux Commands
 
+### 🧩 Install Package
+```bash
+    sudo apt update                    # repository থেকে লেটেস্ট প্যাকেজ list download করে
+    sudo apt upgrade -y
+```
+
 ### 🧩 File & Folder Command
 
 ```bash
@@ -90,7 +96,6 @@
 
     👉 sudo usermod -L soruov                      # lock user (login blocked)
     👉 sudo usermod -U soruov                      # unlock user
-
 ```
 📌 -d + -m → old home directory move করা হয়।\
 📌 -m → home directory তৈরি করবে\
@@ -129,7 +134,6 @@
 
     👉 chgrp developers file.txt
     👉 chgrp -R staff /project
-
 ```
 #### 📌 Symbol & Meaning
 
@@ -160,6 +164,7 @@
 👉 curl -I http://example.com          # HTTP header response দেখা যায়
 👉 wget http://example.com             # URL থেকে ডাটা ডাউনলোড করার জন্য
 ```
+
 ### 🧩 Firewall / Security
 ```bash
 👉 sudo ufw status                      # Firewall এর বর্তমান status দেখা যায়
@@ -182,10 +187,60 @@
 
 👉 sudo ufw delete allow 22
 👉 sudo ufw delete deny 23
-
 ```
 
+### 🧩 SSH (Secure Shell)
 
+```bash
+
+    👉 sudo apt update
+    👉 sudo apt install openssh-client -y
+    👉 sudo apt install openssh-server -y
+
+    👉 sudo systemctl status ssh
+    👉 sudo systemctl start ssh
+    👉 sudo systemctl stop ssh
+    👉 sudo systemctl restart ssh
+    👉 sudo systemctl enable ssh
+    👉 sudo nano /etc/ssh/sshd_config
+    
+    # Generate SSH Key - path = ~/.ssh (Server SSH)
+
+    👉 ssh-keygen                        # Generate ssh key
+    👉 ssh-keygen -t rsa -b 4096         # key generage with rsa for remote access
+    👉 ssh-keygen -t ed25519
+    👉 authorize_keys                    # Copy id_rsa.pub then paste this file
+    👉 cat ~/.ssh/id_rsa.pub | ssh user@host "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"     # Manual copy
+    
+    # Remote server login system (Client SSH)
+
+    👉 ssh -i <private key> <user>@<ip> bash/sh
+    👉 ssh -i ~/.ssh/id_rsa sourov@123.12.12.1 bash/sh
+
+    # SSH Config File (~/.ssh/config)
+    
+    Host myserver
+    HostName 192.168.1.10
+    User root
+    Port 2222
+    IdentityFile ~/.ssh/id_rsa
+
+    👉 ssh myserver         # use
+
+    # File Transfer (SCP / RSYNC)
+
+    👉 scp file.txt user@host:/path
+    👉 scp user@host:/path/file.txt .
+    👉 scp -r folder user@host:/path
+    👉 scp -P 2222 file.txt user@host:/path
+    
+    👉 rsync -avz file.txt user@host:/path
+    👉 rsync -avz --progress folder user@host:/path
+    👉 rsync -avz -e "ssh -p 2222" folder user@host:/path
+```
+📌 -t  = Key type
+📌 -b = Bit size
+📌 -C = Comment
 
 
 
