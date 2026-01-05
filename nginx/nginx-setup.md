@@ -196,6 +196,15 @@
 📌 Sticky Session (IP Hash) : Client-এর একই IP address সবসময় একই server instance-এ যাবে। Session (login, cart, game state) ধরে রাখতে লাগে।\
 📌 Least Connections : Nginx প্রতিবার request দেয় যে server instance সবচেয়ে কম active connection আছে। High traffic হলে automatic load balance হয় → Faster response
 
+### 🧩 Reverse Proxy
+
+```bash
+location /api/ {
+    proxy_pass http://127.0.0.1:3000;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+}
+```
 
 ### 🧩 Basic Static Cache
 
