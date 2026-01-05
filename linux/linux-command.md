@@ -159,10 +159,31 @@
 👉 mtr google.com                      # ping + traceroute একসাথে (real-time)
 👉 curl -I http://example.com          # HTTP header response দেখা যায়
 👉 wget http://example.com             # URL থেকে ডাটা ডাউনলোড করার জন্য
+```
+### 🧩 Firewall / Security
+```bash
+👉 sudo ufw status                      # Firewall এর বর্তমান status দেখা যায়
+👉 sudo ufw enable                         # Firewall চালু করা
+👉 sudo ufw disable                        # Firewall বন্ধ করা
 
+# Reset / Reload
+
+👉 sudo ufw reload
+👉 sudo ufw reset 
+
+# Allow / Deny Rules
+
+👉 sudo ufw allow 22
+👉 sudo ufw allow 80/tcp
+👉 sudo ufw deny 23
+👉 sudo ufw reject 25
+
+# Delete / Modify Rules
+
+👉 sudo ufw delete allow 22
+👉 sudo ufw delete deny 23
 
 ```
-
 
 
 
