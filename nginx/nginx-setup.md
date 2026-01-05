@@ -127,5 +127,26 @@
       }
   }
 ```
+### 🧩 Sticky Session / Least Connections
+```bash
+  # Least connections
+  upstream node_app {
+      least_conn;
+      server 127.0.0.1:3000;
+      server 127.0.0.1:3001;
+      server 127.0.0.1:3002;
+  }
+  
+  # IP hash (sticky session)
+  upstream node_app {
+      ip_hash;
+      server 127.0.0.1:3000;
+      server 127.0.0.1:3001;
+      server 127.0.0.1:3002;
+  }
+```
+📌 Sticky Session (IP Hash) : Client-এর একই IP address সবসময় একই server instance-এ যাবে। Session (login, cart, game state) ধরে রাখতে লাগে।\
+📌 Least Connections : Nginx প্রতিবার request দেয় যে server instance সবচেয়ে কম active connection আছে। High traffic হলে automatic load balance হয় → Faster response
+
 
 
