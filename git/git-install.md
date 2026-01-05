@@ -43,6 +43,15 @@
     👉 git reset file.txt
 ```
 
+### 🧩 Git Unstage
+
+```bash
+    👉 git restore --staged .              # ✅ Safe! সব staged ফাইল unstage করবে
+    👉 git reset                           # ✅ Safe!
+    👉 git reset HEAD                      # ✅ Safe!
+    👉 git restore --staged file.txt       # ✅ Safe! নির্দিষ্ট ফাইল unstage
+    👉 git reset --hard                    # ❌ Dangerous! Changes delete করে
+```
 
 
 
