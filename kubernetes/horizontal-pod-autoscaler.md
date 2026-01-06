@@ -15,6 +15,7 @@
   kubectl get hpa -w   # Live See hpa cup
 
   while true; do wget -q -O- http://html-website-service; done        # Random Traffic Generate for test
+  ab -n 100000 -c 50 http://127.0.0.1:37655/
 
   kubectl get pods -n kube-system | grep metrics
 ```
