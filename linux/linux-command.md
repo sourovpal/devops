@@ -47,6 +47,7 @@
 
 | Directory | Description |
 |----------|-------------|
+| `~`      | Login User Home Directory |
 | `/`      | Root directory. The top-level directory of the entire filesystem |
 | `/bin`  | Essential user command binaries (e.g., `ls`, `cp`, `mv`) |
 | `/boot` | Bootloader files, Linux kernel, initramfs |
