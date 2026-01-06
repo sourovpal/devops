@@ -1,5 +1,12 @@
 # **Service File Configration**
 
+### 🧩 Related Commands
+```bash
+  kubectl apply -f <filename.yaml>
+  kubectl get svc
+```
+
+
 nodeport-service.yaml
 
 ### 🧩 NodePort Service Configration
