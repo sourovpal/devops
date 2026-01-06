@@ -3,7 +3,8 @@
 ### 🧩 Related Commands
 ```bash
   kubectl apply -f <filename.yaml>
-  kubectl get svc
+  kubectl get svc           # Show all runing service list
+  minikube sercice <service-name>     # Open local server for dev
 ```
 
 
