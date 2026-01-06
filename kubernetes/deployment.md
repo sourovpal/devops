@@ -77,5 +77,7 @@ spec:
   👉 kubectl rollout restart deployment/xxxx-xxxxxxx-xxxxx               # Restart existing pods
   👉 kubectl rollout status deployment/xxxx-xxxxxxx-xxxxx                # Check Current Status
   👉 kubectl rollout undo deployment/xxxx-xxxxxxx-xxxxx                  # Check Current Status
+
+  👉 kubectl get deployment html-app -o yaml
 ```
 
