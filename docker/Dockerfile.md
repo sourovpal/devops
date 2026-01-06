@@ -133,6 +133,7 @@ composer install \
 
 👉 docker stats                  # live CPU/RAM usage
 👉 docker top web                # running process
+👉 docker port html-website      # See Running Ports
 
 ```
 
