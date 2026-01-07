@@ -33,3 +33,42 @@ spec:
   👉 kubectl rollout restart deployment <deployment-name>
 
 ```
+### 🧩 Multiple ConfigMap Use
+
+`application-configmap.yaml`
+```bash
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: application-configmap
+data:
+  APP_NAME: MyApp
+  APP_ENV: production
+  LOG_LEVEL: info
+```
+`database-configmap.yaml`
+```bash
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: database-configmap
+data:
+  DB_HOST: mysql-service
+  DB_PORT: "3306"
+  DB_DATABASE: myapp_db
+```
+`👉 kubectl apply -f application-configmap.yaml`
+`👉 kubectl apply -f database-configmap.yaml`
+`deployment.yaml`
+```bash
+  containers:
+  - name: html-website
+    image: html-website:latest
+    envFrom:
+      - configMapRef:
+          name: application-configmap
+      - configMapRef:
+          name: database-configmap
+```
+
+
