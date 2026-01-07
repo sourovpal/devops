@@ -135,6 +135,9 @@
     👉 sudo useradd -m -s /bin/bash -g developers soruov   # home directory + shell + group নির্দিষ্ট করে
     👉 sudo useradd -u 1002 -m soruov          # Specific UID নির্দিষ্ট করে
 
+    👉 sudo chsh -s /bin/bash username
+    👉 chsh -s /bin/bash                        # নিজের user হলে
+
     👉 sudo userdel soruov                     # শুধু user মুছে দেয়
     👉 sudo userdel -r soruov                  # user + home directory মুছে দেয়
 
