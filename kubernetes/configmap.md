@@ -109,7 +109,16 @@ containers:
 
 ```
 
-
+### 🧩 Pod-এ Volume হিসেবে Mount করা
+```php
+volumes:
+  - name: config-volume
+    configMap:
+      name: app-config
+volumeMounts:
+  - name: config-volume
+    mountPath: /etc/config
+```
 
 
 
