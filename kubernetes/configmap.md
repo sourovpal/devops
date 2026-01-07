@@ -57,8 +57,6 @@ data:
   DB_PORT: "3306"
   DB_DATABASE: myapp_db
 ```
-`👉 kubectl apply -f application-configmap.yaml`\
-`👉 kubectl apply -f database-configmap.yaml`\
 `deployment.yaml`
 ```bash
   containers:
@@ -70,5 +68,17 @@ data:
       - configMapRef:
           name: database-configmap
 ```
+#### 🧩 Apply
+```bash
+👉 kubectl apply -f application-configmap.yaml
+👉 kubectl apply -f database-configmap.yaml
+👉 kubectl apply -f deployment.yaml
+```
+
+
+
+
+
+
 
 
