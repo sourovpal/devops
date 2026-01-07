@@ -60,3 +60,30 @@ containers:
             key: APP_ENV
 
 ```
+### 🧩 Pod-এ Volume হিসেবে Mount করা
+
+```php
+      containers:
+        - name: html-website
+          image: html-website:latest
+          
+          # Secret environment variable হিসেবে inject
+          envFrom:
+            - secretRef:
+                name: app-secret
+
+          # Secret volume mount
+          volumeMounts:
+            - name: secret-volume
+              mountPath: /etc/secret-data
+              readOnly: true
+
+      # Volume definition
+      volumes:
+        - name: secret-volume
+          secret:
+            secretName: app-secret
+```
+
+
+
