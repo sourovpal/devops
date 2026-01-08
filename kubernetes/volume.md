@@ -26,3 +26,9 @@ Volume হচ্ছে একটি implementation, Persistent Storage হচ্
   - Hard Disk
   - NFS
   - Cloud Disk (GCP, AWS, Azure)
+
+### 🧩 Persistent Volume Claim (PVC) কী?\
+Pod বলে:\
+- আমার 10GB স্টোরেজ লাগবে
+- Pod PVC ব্যবহার করে ডাটা লিখে
+- Pod delete হলেও → ডাটা থাকে
