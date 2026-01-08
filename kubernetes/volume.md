@@ -111,6 +111,39 @@ spec:
 👉 kubectl apply -f pod.yaml
 ```
 
+### 🧩 emptyDir কী?
+Container গুলোর মধ্যে ডাটা শেয়ার একই Pod এর ভিতরে
+`pod.yaml`
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: emptydir-demo
+spec:
+  containers:
+    - name: writer
+      image: busybox
+      command: ["sh", "-c", "echo Hello > /data/hello.txt; sleep 3600"]
+      volumeMounts:
+        - mountPath: /data
+          name: shared-data
+
+    - name: reader
+      image: busybox
+      command: ["sh", "-c", "cat /data/hello.txt; sleep 3600"]
+      volumeMounts:
+        - mountPath: /data
+          name: shared-data
+
+  volumes:
+    - name: shared-data
+      emptyDir: {}
+```
+#### এখানে কী হচ্ছে?
+- writer container file লিখছে
+- reader container সেই file পড়ছে
+- দুই container একই emptyDir ব্যবহার করছে
+
 
 
 
