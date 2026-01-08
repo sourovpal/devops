@@ -98,7 +98,7 @@ spec:
 - Nginx এখানে যেটা লিখবে → সেটা Persistent থাকবে
 
 ### 🧩 Step 4: Apply & Others Commands
-```cmd
+```yaml
 👉 kubectl apply -f persistent-volume.yaml
 👉 kubectl apply -f persistent-volume-claim.yaml
 👉 kubectl apply -f pod.yaml
