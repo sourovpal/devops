@@ -97,7 +97,16 @@ spec:
 - PVC → Pod-এর ভিতরে /usr/share/nginx/html এ mount
 - Nginx এখানে যেটা লিখবে → সেটা Persistent থাকবে
 
+### 🧩 Step l: Apply
+```yaml
+👉 kubectl apply -f persistent-volume.yaml
+👉 kubectl apply -f persistent-volume-claim.yaml
+👉 kubectl apply -f pod.yaml
 
+👉 kubectl get pv
+👉 kubectl get pvc
+👉 kubectl get pod
+```
 
 
 
