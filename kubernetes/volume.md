@@ -33,6 +33,7 @@ Pod বলে:
 - Pod delete হলেও → ডাটা থাকে
 
 ### 🧩 Step 1: Persistent Volume Create (PV)
+
 `persistent-volume.yaml`
 
 ```yaml
@@ -49,8 +50,50 @@ spec:
   hostPath:
     path: /mnt/data
 ```
+- storage: 5Gi → 5GB স্টোরেজ
+- ReadWriteOnce → এক pod একসাথে ব্যবহার করতে পারব
+- Retain → PVC delete হলেও ডাটা থাকবে
+- /mnt/data → node-এর actual folder
 
+### 🧩 Step 2: Persistent Volume Create (PV)
 
+`persistent-volume.yaml`
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-demo
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+```
+এই PVC automatically pv-demo এর সাথে bind হবে (size & accessMode match হলে)
+
+### 🧩 Step 3: Pod-এ PVC ব্যবহার
+
+`pod.yaml`
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-demo
+spec:
+  containers:
+    - name: app
+      image: nginx
+      volumeMounts:
+        - mountPath: /usr/share/nginx/html
+          name: my-storage
+  volumes:
+    - name: my-storage
+      persistentVolumeClaim:
+        claimName: pvc-demo
+```
 
 
 
