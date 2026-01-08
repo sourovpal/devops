@@ -94,6 +94,8 @@ spec:
       persistentVolumeClaim:
         claimName: pvc-demo
 ```
+- PVC → Pod-এর ভিতরে /usr/share/nginx/html এ mount
+- Nginx এখানে যেটা লিখবে → সেটা Persistent থাকবে
 
 
 
