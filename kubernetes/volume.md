@@ -13,3 +13,16 @@ Example 👇:
 mydata → Docker Volume\
 /var/lib/mysql → MySQL-এর ডাটা লোকেশন\
 Container নষ্ট হলেও database data নিরাপদ থাকে।
+
+### 🧩 Persistent Storage কী?
+
+Persistent Storage হলো একটা concept — মানে ডাটা যেন long-term থাকে, container / pod মারা গেলেও যেন থাকে।\
+Volume হচ্ছে একটি implementation, Persistent Storage হচ্ছে goal / উদ্দেশ্য।
+
+### 🧩 Persistent Volume (PV) কী?
+
+  আসল ফিজিক্যাল স্টোরেজ\
+  হতে পারে:
+  - Hard Disk
+  - NFS
+  - Cloud Disk (GCP, AWS, Azure)
