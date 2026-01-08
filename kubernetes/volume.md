@@ -156,5 +156,27 @@ spec:
 - Important logs
 
 
+### 🧩 hostPath কী?
+Container গুলোর মধ্যে ডাটা শেয়ার একই Pod এর ভিতরে
+`pod.yaml`
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hostpath-demo
+spec:
+  containers:
+    - name: app
+      image: nginx
+      volumeMounts:
+        - mountPath: /usr/share/nginx/html
+          name: web-data
+  volumes:
+    - name: web-data
+      hostPath:
+        path: /data/nginx
+        type: DirectoryOrCreate
+```
+
 
 
