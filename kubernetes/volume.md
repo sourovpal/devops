@@ -177,6 +177,8 @@ spec:
         path: /data/nginx
         type: DirectoryOrCreate
 ```
-
+- Host machine-এর /data/nginx folder
+- Pod-এর ভিতরে → /usr/share/nginx/html
+- Folder না থাকলে → auto create হবে
 
 
