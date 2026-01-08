@@ -40,7 +40,7 @@ Pod বলে:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: pv-demo
+  name: pv-storage
 spec:
   capacity:
     storage: 5Gi
@@ -63,7 +63,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pvc-demo
+  name: pvc-storage
 spec:
   accessModes:
     - ReadWriteOnce
@@ -81,7 +81,7 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: pod-demo
+  name: website-pod
 spec:
   containers:
     - name: app
@@ -92,7 +92,7 @@ spec:
   volumes:
     - name: my-storage
       persistentVolumeClaim:
-        claimName: pvc-demo
+        claimName: pvc-storage
 ```
 - PVC → Pod-এর ভিতরে /usr/share/nginx/html এ mount
 - Nginx এখানে যেটা লিখবে → সেটা Persistent থাকবে
