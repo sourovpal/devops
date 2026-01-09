@@ -326,7 +326,7 @@
 
 ```bash
 👉 sudo apt install rsync
-👉 rsync -avz my-file.txt root@34.40.169.197:~/data/
+👉 rsync -avz my-file.txt root@34.40.169.701:~/data/
 ```
 
 ### 🧩 Wget & Download file
