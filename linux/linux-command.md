@@ -118,7 +118,7 @@
 
     👉 sudo usermod -g <group-name> <username>         # assign group
     👉 sudo usermod -a -G designers,qa soruov          # -a = append
-    👉 sudo usermod -aG designers,qa soruov          # -a = append
+    👉 sudo usermod -aG designers,qa soruov            # -a = append
 
     👉 groups <username>                               # All assign group list
 
