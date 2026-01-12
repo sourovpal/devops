@@ -12,8 +12,8 @@ Verify install: `sudo terraform -v`
 ### Terraform Project File Structure
 
 php-project/\
-├── main.tf      # main configuration\
-├── variables.tf # variables declaration\
-├── outputs.tf   # outputs declaration\
-└── terraform.tfvars # variable values
+    ├── main.tf      # main configuration\
+    ├── variables.tf # variables declaration\
+    ├── outputs.tf   # outputs declaration\
+    └── terraform.tfvars # variable values
 
