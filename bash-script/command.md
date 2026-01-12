@@ -63,6 +63,15 @@ for i in {1..3}; do
 done
 
 ```
+### 🧩 Example: Function
+
+```bash
+showName() {
+  local name=$1
+  echo "Hello, $name!"
+}
+showName "Alice"
+```
 
 # 🧩 Bash Operators
 
