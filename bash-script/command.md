@@ -79,6 +79,8 @@ fi
 
 ```bash
 echo "2^3" | bc
+# Bash নিজে ^ (power) সাপোর্ট করে না
+# তাই bc বা awk ব্যবহার করতে হয়
 ```
 
 | Operator | Meaning | Example | Result |
@@ -89,6 +91,7 @@ echo "2^3" | bc
 | / | Division | `echo $((10 / 2))` | 5 |
 | % | Modulus | `echo $((10 % 3))` | 1 |
 
+### 🧩 Logical Operators
 
 
 
