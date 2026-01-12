@@ -75,6 +75,15 @@ fi
 | >  | Greater than (ASCII alphabetical order) |
 
 
+### 🧩 Arithmetic Operators
+
+| Operator | Meaning | Example | Result |
+|----------|---------|---------|--------|
+| + | Addition | `echo $((5 + 3))` | 8 |
+| - | Subtraction | `echo $((5 - 3))` | 2 |
+| * | Multiplication | `echo $((5 * 3))` | 15 |
+| / | Division | `echo $((10 / 2))` | 5 |
+| % | Modulus | `echo $((10 % 3))` | 1 |
 
 
 
