@@ -77,6 +77,10 @@ fi
 
 ### 🧩 Arithmetic Operators
 
+```bash
+echo "2^3" | bc
+```
+
 | Operator | Meaning | Example | Result |
 |----------|---------|---------|--------|
 | + | Addition | `echo $((5 + 3))` | 8 |
