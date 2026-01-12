@@ -53,9 +53,6 @@ jobs:
         cd ${{ secrets.LINUX_DIR_PATH }}
 
         echo "📦 Installing Node packages..."
-        npm install
-
-        echo "🏗 Building Next.js frontend..."
-        npm run build
+        npm install --production
 */
 ```
