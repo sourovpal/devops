@@ -28,6 +28,17 @@ quotient=$((num2 / num1))
 echo "Sum: $sum, Difference: $difference, Product: $product, Quotient: $quotient"
 ```
 
+### Bash Operators
+
+#### Comparison Operators
+| Operator | Meaning |
+|----------|---------|
+| -eq | Equal to |
+| -ne | Not equal to |
+| -lt | Less than |
+| -le | Less than or equal to |
+| -gt | Greater than |
+| -ge | Greater than or equal to |
 
 
 
