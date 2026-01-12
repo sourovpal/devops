@@ -11,20 +11,20 @@ Clustering হলো একাধিক ডাটাবেস সার্ভা
 
 ### 👉 ধরন:
 
-####📌 Active-Passive Cluster
+#### 📌 Active-Passive Cluster
 
 - একটি server active, বাকিগুলো standby।
 - Fail হলে passive server take over করে।
 - উদাহরণ: PostgreSQL + Patroni, MySQL + MHA
 
-####📌 Active-Active Cluster
+#### 📌 Active-Active Cluster
 
 - সব সার্ভার active এবং concurrentভাবে read/write করতে পারে।
 - উদাহরণ: Galera Cluster (MariaDB/MySQL), Oracle RAC
 - সুবিধা: High performance, High availability
 - অসুবিধা: Conflict handling, network latency
 
-####📌 Shared Storage vs Shared Nothing
+#### 📌 Shared Storage vs Shared Nothing
 
 - Shared Storage: সব node একই storage access করে।
 - Shared Nothing: প্রতিটি node আলাদা storage, network দিয়ে sync হয়।
