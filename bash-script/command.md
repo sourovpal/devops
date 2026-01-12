@@ -92,6 +92,23 @@ echo "2^3" | bc
 | % | Modulus | `echo $((10 % 3))` | 1 |
 
 ### 🧩 Logical Operators
+```bash
+#!/bin/bash
+
+a=10
+b=25
+
+if [ $a -gt 5 ] && [ $b -gt 20 ]; then
+    echo "Both conditions are true"
+fi
+```
+
+| Operator | Meaning |
+|----------|---------|
+| && | Logical AND |
+| \|\| | Logical OR |
+| ! | Logical NOT |
+
 
 
 
