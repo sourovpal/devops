@@ -26,7 +26,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest        # এখানেই নির্ধারিত হয় workflow কোন environment বা machine-এ রান হবে।
 
     steps:
       - name: Checkout code
