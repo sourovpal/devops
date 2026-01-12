@@ -28,9 +28,21 @@ quotient=$((num2 / num1))
 echo "Sum: $sum, Difference: $difference, Product: $product, Quotient: $quotient"
 ```
 
-### Bash Operators
+## Bash Operators
 
 #### Comparison Operators
+```bash
+#!/bin/bash
+
+a=10
+b=20
+
+if [ $a -lt $b ]; then
+    echo "$a is less than $b"
+else
+    echo "$a is NOT less than $b"
+fi
+```
 | Operator | Meaning |
 |----------|---------|
 | -eq | Equal to |
@@ -39,6 +51,8 @@ echo "Sum: $sum, Difference: $difference, Product: $product, Quotient: $quotient
 | -le | Less than or equal to |
 | -gt | Greater than |
 | -ge | Greater than or equal to |
+
+
 
 
 
