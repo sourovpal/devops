@@ -55,4 +55,21 @@ jobs:
         echo "📦 Installing Node packages..."
         npm install --production
 */
+
+# Sync code to server
+
+/*
+- name: Sync code to server
+    uses: easingthemes/ssh-deploy@v5.0.0
+    env:
+      SSH_PRIVATE_KEY: ${{ secrets.LINUX_SSH_KEY }}
+      ARGS: "-avzr --delete"
+      SOURCE: "."
+      REMOTE_HOST: ${{ secrets.LINUX_HOST }}
+      REMOTE_USER: ${{ secrets.LINUX_USER }}
+      TARGET: "${{ secrets.LINUX_DIR_PATH }}/"
+*/
+
+
+
 ```
