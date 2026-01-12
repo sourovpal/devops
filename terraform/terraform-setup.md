@@ -1,5 +1,8 @@
 # Terraform Setup
 
+Terraform হলো একটি Infrastructure as Code (IaC) টুল।\
+কোড লিখে সার্ভার, নেটওয়ার্ক, ডাটাবেস, লোড ব্যালান্সার ইত্যাদি তৈরি ও ম্যানেজ করা।
+
 ### Install Terraform
 ```bash
 sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
