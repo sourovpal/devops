@@ -58,4 +58,51 @@ terraform apply    # Resource তৈরি করবে
 terraform destroy  # সব মুছে ফেলবে
 ```
 
+### 📁 Professional Folder Structure
+
+```text
+terraform-project/
+│
+├── modules/
+│   ├── vpc/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   │
+│   ├── ec2/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   │
+│   └── rds/
+│       ├── main.tf
+│       ├── variables.tf
+│       └── outputs.tf
+│
+├── envs/
+│   ├── dev/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   ├── outputs.tf
+│   │   └── terraform.tfvars
+│   │
+│   ├── staging/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   ├── outputs.tf
+│   │   └── terraform.tfvars
+│   │
+│   └── prod/
+│       ├── main.tf
+│       ├── variables.tf
+│       ├── outputs.tf
+│       └── terraform.tfvars
+│
+├── providers.tf
+├── backend.tf
+├── versions.tf
+└── README.md
+```
+
+
 
