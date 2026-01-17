@@ -34,7 +34,8 @@
   sudo chown -R prometheus:prometheus /etc/prometheus
 ```
 
-### prometheus.yml (Basic Config)
+### Basic Config
+`prometheus.yml`
 ```bash
   vim /etc/prometheus/prometheus.yml
 
