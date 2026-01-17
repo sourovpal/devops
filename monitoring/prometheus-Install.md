@@ -51,7 +51,7 @@
 ### Systemd Service
 
 ```service
-  vim vim nano /etc/systemd/system/prometheus.service
+  sudo vim /etc/systemd/system/prometheus.service
 
   [Unit]
   Description=Prometheus Monitoring
