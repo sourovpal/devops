@@ -36,3 +36,12 @@ scrape_configs:
   # Prometheus Restart
   sudo systemctl restart prometheus
 ```
+
+### 🔐 Production Tips (Important)
+
+- ✔ cAdvisor public expose করবেন না
+- ✔ Prometheus + Grafana internal network এ রাখুন
+- ✔ Container labels ব্যবহার করুন
+- ✔ Alertmanager যুক্ত করুন
+- ✔ Docker-compose ব্যবহার করা ভালো
+
