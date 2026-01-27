@@ -367,5 +367,55 @@ resource "aws_instance" "my_instance" {
 }
 
 ```
+### Private Subnet + Create NAT Gateway + Route Table for Private Subnet
+```tf
+# 3. Create Private Subnet
+resource "aws_subnet" "private_subnet" {
+  vpc_id            = aws_vpc.my_vpc.id
+  cidr_block        = "10.0.2.0/24"
+  availability_zone = "ap-southeast-1a"
+  map_public_ip_on_launch = false  # Private subnet, তাই false
 
+  tags = {
+    Name = "PrivateSubnet"
+  }
+}
+
+# Elastic IP for NAT
+resource "aws_eip" "nat_eip" {
+  vpc = true
+}
+
+# NAT Gateway in Public Subnet
+resource "aws_nat_gateway" "nat" {
+  allocation_id = aws_eip.nat_eip.id
+  subnet_id     = aws_subnet.public_subnet.id
+
+  tags = {
+    Name = "MyNATGateway"
+  }
+}
+
+
+# Private Route Table
+resource "aws_route_table" "private_rt" {
+  vpc_id = aws_vpc.my_vpc.id
+
+  route {
+    cidr_block     = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.nat.id
+  }
+
+  tags = {
+    Name = "PrivateRouteTable"
+  }
+}
+
+# Associate Private Subnet with Private Route Table
+resource "aws_route_table_association" "private_assoc" {
+  subnet_id      = aws_subnet.private_subnet.id
+  route_table_id = aws_route_table.private_rt.id
+}
+
+```
 
