@@ -83,7 +83,7 @@ Bucket Policy তে Deny → যে কেউ access পাবে না, এ�
 - ✅ এখন শুধু `Username: admin-user` Deny এর আওতায় পড়বে না
 
 
-### Public access only Read and Download | IAM User Update and Delete Policy
+### 🧩 Public access only Read and Download | IAM User Update and Delete Policy
 
 ```json
 {
