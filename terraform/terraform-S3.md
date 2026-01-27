@@ -66,7 +66,7 @@ AWS_URL=https://my-bucket.s3.ap-south-1.amazonaws.com
   - Secret access key → AWS_SECRET_ACCESS_KEY
   - 💡 Secret key একবারই দেখানো হবে, save করে রাখুন
 
-### Admin role কে allow করা
+### 🧩 Admin role কে allow করা
 Bucket Policy তে Deny → যে কেউ access পাবে না, এমনকি Admin IAM এর Allow থাকলেও , আপনি চাইলে Condition দিয়ে exceptions set করতে পারেন
 ```json
 {
