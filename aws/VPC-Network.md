@@ -111,6 +111,7 @@ NAT হলো একটা মেথড যা Private Subnet-এর instance �
 **সহজভাবে:**
 - Private IP → Public IP হিসেবে translate করে Internet access দেয়।
 - Internet → Private IP এ ঢুকতে পারবে না।
+- Only Outbound allow করে
 
 **কেন দরকার?**
 
