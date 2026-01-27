@@ -1,13 +1,13 @@
 # AWS S3 Bucket
 
-### S3 Bucket **Public Read Enable**
+### 📌 S3 Bucket **Public Read Enable**
 **S3 → Your Bucket → Permissions**
 
 - Block public access → Edit
 - ❌ সব checkbox আনচেক করুন
 - Save changes
 
-### Add Bucket Policy
+### 📌 Add Bucket Policy
 **Permissions → Bucket policy → Edit**
 ```json
 {
