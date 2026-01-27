@@ -1,13 +1,13 @@
 # AWS S3 Bucket
 
-### 📌 S3 Bucket **Public Read Enable**
+### 🧩 S3 Bucket **Public Read Enable**
 **S3 → Your Bucket → Permissions**
 
 - Block public access → Edit
 - ❌ সব checkbox আনচেক করুন
 - Save changes
 
-### 📌 Add Bucket Policy
+### 🧩 Add Bucket Policy
 **Permissions → Bucket policy → Edit**
 ```json
 {
@@ -23,3 +23,46 @@
   ]
 }
 ```
+
+### 🧩 Laravel S3 file Upload and Delete
+
+```env
+AWS_ACCESS_KEY_ID=xxxx
+AWS_SECRET_ACCESS_KEY=xxxx
+AWS_DEFAULT_REGION=ap-south-1
+AWS_BUCKET=my-bucket
+AWS_URL=https://my-bucket.s3.ap-south-1.amazonaws.com
+```
+
+`config/filesystems.php`
+```php
+'s3' => [
+    'driver' => 's3',
+    'key' => env('AWS_ACCESS_KEY_ID'),
+    'secret' => env('AWS_SECRET_ACCESS_KEY'),
+    'region' => env('AWS_DEFAULT_REGION'),
+    'bucket' => env('AWS_BUCKET'),
+    'url' => env('AWS_URL'),
+],
+```
+
+### AWS Access Key & Secret Key পেতে
+
+- Step 1: AWS Console → IAM
+- Step 2: User তৈরি করুন (যদি আগে না থাকে)
+  - Users → Add users
+  - Username দিন (যেমন: soruov-admin)
+  - Access type:
+  - ✅ Programmatic access (CLI, API, SDK এর জন্য)
+  - ❌ Console access দরকার না হলে unchecked
+- Step 3: Permission attach করুন
+  - Direct attach policy: AmazonS3FullAccess (development purpose)
+  - Production হলে least privilege principle ফলো করুন
+- Step 4: User তৈরি করলে Key পাবেন
+  - Access key ID → AWS_ACCESS_KEY_ID
+  - Secret access key → AWS_SECRET_ACCESS_KEY
+  - 💡 Secret key একবারই দেখানো হবে, save করে রাখুন
+
+
+
+
