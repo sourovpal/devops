@@ -123,12 +123,16 @@ resource "aws_instance" "my_instance" {
   # Optional: Key pair for SSH access
   key_name = "my-key"  # আগেই AWS এ key pair তৈরি করে নিতে হবে
 
-  # Optional: Security group
+  # Optional: Subnet and Security group
+  subnet_id              = "subnet-010486826dce7f158" # public subnet
   vpc_security_group_ids = ["sg-0123456789abcdef0"]  # আপনার security group ID
+
+  associate_public_ip_address = true # public IP পেতে হলে অবশ্যই দিতে হব
 
   tags = {
     Name = "MyTerraformInstance"
   }
 }
 ```
+📌 subnet_id অবশ্যই security group এর VPC Same হতে হবে।
 
