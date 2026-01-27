@@ -51,6 +51,39 @@ provider "aws" {           # এটা বলে Terraform কে তুমি �
 }
 ```
 
+
+### Terraform Create AWS Instance
+
+`main.tf`
+
+```tf
+# Provider নির্ধারণ
+provider "aws" {
+  region = "us-east-1"  # আপনার প্রয়োজনীয় region
+}
+
+# EC2 instance তৈরি
+resource "aws_instance" "my_instance" {
+  ami           = "ami-0c55b159cbfafe1f0"  # Ubuntu 22.04 AMI (region-specific)
+  instance_type = "t2.micro"
+
+  # Optional: Key pair for SSH access
+  key_name = "my-key"  # আগেই AWS এ key pair তৈরি করে নিতে হবে
+
+  # Optional: Subnet and Security group
+  subnet_id              = "subnet-010486826dce7f158" # public subnet
+  vpc_security_group_ids = ["sg-0123456789abcdef0"]  # আপনার security group ID
+
+  associate_public_ip_address = true # public IP পেতে হলে অবশ্যই দিতে হব
+
+  tags = {
+    Name = "MyTerraformInstance"
+  }
+}
+```
+📌 subnet_id অবশ্যই security group এর VPC Same হতে হবে।
+
+
 Terraform Commands
 ```bash
 terraform init     # Terraform initialize
@@ -104,35 +137,235 @@ terraform-project/
 ├── versions.tf
 └── README.md
 ```
-
-### Terraform Create AWS Instance
-
-`main.tf`
+### Create VPC
 
 ```tf
-# Provider নির্ধারণ
 provider "aws" {
-  region = "us-east-1"  # আপনার প্রয়োজনীয় region
+  region = "ap-southeast-1"
 }
 
-# EC2 instance তৈরি
+resource "aws_vpc" "my_vpc" {
+  cidr_block           = "10.0.0.0/16"
+  enable_dns_support   = true
+  enable_dns_hostnames = true
+
+  tags = {
+    Name = "MyVPC"
+  }
+}
+```
+
+### Create Public Subnet
+```tf
+resource "aws_subnet" "public_subnet" {
+  vpc_id                  = aws_vpc.my_vpc.id
+  cidr_block              = "10.0.1.0/24"
+  map_public_ip_on_launch = true  # EC2 automatically public IP assign করবে
+  availability_zone       = "ap-southeast-1a"
+
+  tags = {
+    Name = "PublicSubnet"
+  }
+}
+```
+
+
+### Create Internet Gateway
+```tf
+resource "aws_internet_gateway" "igw" {
+  vpc_id = aws_vpc.my_vpc.id
+
+  tags = {
+    Name = "MyIGW"
+  }
+}
+```
+
+### Create Route Table
+```tf
+resource "aws_route_table" "public_rt" {
+  vpc_id = aws_vpc.my_vpc.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.igw.id
+  }
+
+  tags = {
+    Name = "PublicRouteTable"
+  }
+}
+```
+
+### Associate Route Table with Subnet
+
+```tf
+resource "aws_route_table_association" "public_assoc" {
+  subnet_id      = aws_subnet.public_subnet.id
+  route_table_id = aws_route_table.public_rt.id
+}
+```
+
+### Security Group for SSH and HTTP
+```tf
+resource "aws_security_group" "my_sg" {
+  name        = "my_sg"
+  description = "Allow SSH and HTTP"
+  vpc_id      = aws_vpc.my_vpc.id
+
+  ingress {
+    description = "SSH"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "HTTP"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "MySecurityGroup"
+  }
+}
+```
+### Create Instance 
+
+```tf
 resource "aws_instance" "my_instance" {
-  ami           = "ami-0c55b159cbfafe1f0"  # Ubuntu 22.04 AMI (region-specific)
-  instance_type = "t2.micro"
+  ami                    = "ami-08d59269edddde222"  # region specific
+  instance_type          = "t2.micro"
+  subnet_id              = aws_subnet.public_subnet.id
+  vpc_security_group_ids = [aws_security_group.my_sg.id]
+  key_name               = "workrobot"
 
-  # Optional: Key pair for SSH access
-  key_name = "my-key"  # আগেই AWS এ key pair তৈরি করে নিতে হবে
-
-  # Optional: Subnet and Security group
-  subnet_id              = "subnet-010486826dce7f158" # public subnet
-  vpc_security_group_ids = ["sg-0123456789abcdef0"]  # আপনার security group ID
-
-  associate_public_ip_address = true # public IP পেতে হলে অবশ্যই দিতে হব
+  associate_public_ip_address = true
 
   tags = {
     Name = "MyTerraformInstance"
   }
 }
 ```
-📌 subnet_id অবশ্যই security group এর VPC Same হতে হবে।
+
+### `main.tf`
+```tf
+provider "aws" {
+  region = "ap-southeast-1"
+}
+
+# 1. Create VPC
+resource "aws_vpc" "my_vpc" {
+  cidr_block           = "10.0.0.0/16"
+  enable_dns_support   = true
+  enable_dns_hostnames = true
+
+  tags = {
+    Name = "MyVPC"
+  }
+}
+
+# 2. Create Public Subnet
+resource "aws_subnet" "public_subnet" {
+  vpc_id                  = aws_vpc.my_vpc.id
+  cidr_block              = "10.0.1.0/24"
+  map_public_ip_on_launch = true  # EC2 automatically public IP assign করবে
+  availability_zone       = "ap-southeast-1a"
+
+  tags = {
+    Name = "PublicSubnet"
+  }
+}
+
+# 3. Create Internet Gateway
+resource "aws_internet_gateway" "igw" {
+  vpc_id = aws_vpc.my_vpc.id
+
+  tags = {
+    Name = "MyIGW"
+  }
+}
+
+# 4. Create Route Table
+resource "aws_route_table" "public_rt" {
+  vpc_id = aws_vpc.my_vpc.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.igw.id
+  }
+
+  tags = {
+    Name = "PublicRouteTable"
+  }
+}
+
+# 5. Associate Route Table with Subnet
+resource "aws_route_table_association" "public_assoc" {
+  subnet_id      = aws_subnet.public_subnet.id
+  route_table_id = aws_route_table.public_rt.id
+}
+
+# 6. Security Group for SSH and HTTP
+resource "aws_security_group" "my_sg" {
+  name        = "my_sg"
+  description = "Allow SSH and HTTP"
+  vpc_id      = aws_vpc.my_vpc.id
+
+  ingress {
+    description = "SSH"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "HTTP"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "MySecurityGroup"
+  }
+}
+
+# 7. EC2 Instance
+resource "aws_instance" "my_instance" {
+  ami                    = "ami-08d59269edddde222"  # region specific
+  instance_type          = "t2.micro"
+  subnet_id              = aws_subnet.public_subnet.id
+  vpc_security_group_ids = [aws_security_group.my_sg.id]
+  key_name               = "workrobot"
+
+  associate_public_ip_address = true
+
+  tags = {
+    Name = "MyTerraformInstance"
+  }
+}
+
+```
+
 
