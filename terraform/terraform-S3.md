@@ -81,3 +81,36 @@ Bucket Policy তে Deny → যে কেউ access পাবে না, এ�
 }
 ```
 - ✅ এখন শুধু `Username: admin-user` Deny এর আওতায় পড়বে না
+
+
+### Public access only Read and Download | IAM User Update and Delete Policy
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicReadGetObject",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME/*"
+    },
+    {
+      "Sid": "IAMUpdateDelete",
+      "Effect": "Allow",
+      "Principal": { "AWS": "*" },
+      "Action": [
+        "s3:PutObject",
+        "s3:DeleteObject"
+      ],
+      "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME/*",
+      "Condition": {
+        "StringNotEqualsIfExists": {
+          "aws:username": "public-user"
+        }
+      }
+    }
+  ]
+}
+```
