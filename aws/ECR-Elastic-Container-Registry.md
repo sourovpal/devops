@@ -9,6 +9,7 @@ aws configure
 ```bash
 aws ecr create-repository --repository-name myproject --region us-east-1
 
+# Output:
 {
     "repository": {
         "repositoryArn": "arn:aws:ecr:us-east-1:123456789012:repository/myproject",
