@@ -11,11 +11,11 @@ aws ecr create-repository --repository-name myproject --region us-east-1
 
 {
     "repository": {
-        "repositoryArn": "arn:aws:ecr:ap-southeast-1:123456789012:repository/myproject",
+        "repositoryArn": "arn:aws:ecr:us-east-1:123456789012:repository/myproject",
         "registryId": "123456789012",
         "repositoryName": "myproject",
-        "repositoryUri": "123456789012.dkr.ecr.ap-southeast-1.amazonaws.com/myproject",
-        "createdAt": "2026-01-30T10:56:53.427000+06:00",
+        "repositoryUri": "123456789012.dkr.ecr.us-east-1.amazonaws.com/myproject",
+        "createdAt": "2025-01-30T10:56:53.427000+06:00",
         "imageTagMutability": "MUTABLE",
         "imageScanningConfiguration": {
             "scanOnPush": false
