@@ -1,4 +1,4 @@
-# 🧩 Elastic Container Registry
+# 💾 Elastic Container Registry
 
 ### 🧩 **AWS CLI configure করুন** (যদি না থাকে):
 ```bash
