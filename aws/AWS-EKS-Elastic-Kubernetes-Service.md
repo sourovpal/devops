@@ -51,3 +51,4 @@ aws eks create-cluster \
 * 📌 এখানে:
   - subnet-aaa, subnet-bbb → তোমার VPC এর subnet ID
   - <ACCOUNT_ID> → AWS Account ID
+  - EKS API internet থেকে access করা যাবে (endpointPublicAccess=true,endpointPrivateAccess=false)
