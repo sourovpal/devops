@@ -38,3 +38,16 @@ aws iam attach-role-policy \
 ```
 * যদি তুমি নিজে policy বানাও নাম পুরোপুরি তোমার ইচ্ছেমতো
 * AWS Managed Policy হলে যদি তুমি AWS-এর built-in policy attach করো ❌ নাম change করা যাবে না
+
+### EKS Cluster Create
+```bash
+aws eks create-cluster \
+  --name my-eks-cluster \
+  --region ap-south-1 \
+  --kubernetes-version 1.29 \
+  --role-arn arn:aws:iam::<ACCOUNT_ID>:role/EKSClusterRole \
+  --resources-vpc-config subnetIds=<subnet-aaa>,<subnet-bbb>
+```
+* 📌 এখানে:
+  - <subnet-aaa>, <subnet-bbb> → তোমার VPC এর subnet ID
+  - <ACCOUNT_ID> → AWS Account ID
