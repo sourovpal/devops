@@ -29,7 +29,6 @@ aws iam create-role \
   --assume-role-policy-document file://eks-trust.json
 ```
 * Role বানানোর সময় তুমি যেকোনো meaningful নাম দিতে পারবে
-* 
 
 ### Policy attach
 ```bash
