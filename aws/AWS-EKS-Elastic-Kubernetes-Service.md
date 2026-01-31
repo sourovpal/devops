@@ -86,7 +86,7 @@ aws eks update-kubeconfig \
 kubectl get nodes
 ```
 
-## 🗄️ Node Group
+## 🗄️ Nodes Group
 
 ### 🧩 Create Role
 `trust-policy.json`
