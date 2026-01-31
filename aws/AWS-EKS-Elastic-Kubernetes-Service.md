@@ -1,4 +1,4 @@
-# Elastic Kubernetes Service
+# ☸️ Elastic Kubernetes Service
 
 ### 🧩 Show cluster list
 ```bash
@@ -20,7 +20,7 @@ for region in $(aws ec2 describe-regions --query "Regions[].RegionName" --output
 done
 ```
 
-## Create a new cluster
+## 🔀 Create a new cluster
 
 ### 🧩 Create Role
 `eks-trust.json`
@@ -86,7 +86,7 @@ aws eks update-kubeconfig \
 kubectl get nodes
 ```
 
-## Node Group
+## 🗄️ Node Group
 
 ### 🧩 Create Role
 `trust-policy.json`
